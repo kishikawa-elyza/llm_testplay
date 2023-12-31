@@ -1,0 +1,20 @@
+# docker-compose up
+
+version: '1'
+
+services:
+  work_docker:
+    image: ubuntu_22.04_python3.10
+    volumes:
+      - ..:/SMBC-GREEN-DATA-Challenge:/work/env001
+    working_dir: /work/env001
+    ports:
+      - '8800:8800'
+    container_name: SMBC-GREEN-DATA-Challenge
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          cpus: '2'
+          memory: 4G
